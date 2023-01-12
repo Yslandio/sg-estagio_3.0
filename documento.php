@@ -390,12 +390,12 @@
                         </div>
 
                         <div class="d-flex gap-2 justify-content-end py-4">
-                            <button class="btn btn-outline-dark" type="button" onclick="downloadDoc()">Exportar DOC</button>
+                            <button class="btn btn-outline-dark" type="button" onclick="downloadDoc()">Exportar DOCX</button>
                             <button class="btn btn-outline-info" type="submit" name="exportar_documento_pdf">Exportar PDF</button>
                         </div>
                     </form>
                     <form class="d-none" action="models/documento.php" method="post" id="exportar_documento_doc">
-                        <button type="submit" name="exportar_documento_doc">Exportar DOC</button>
+                        <input type="hidden" name="exportar_documento_doc">
                     </form>
                 </div>
             </div>
