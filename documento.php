@@ -473,7 +473,7 @@
                 "documento_supervisor_nome",
                 "documento_diretor_nome",
             ];
-
+            
             var table = [];
             for (let index = 1; index <= 6; index++) {
                 table.push("matutino_segunda_" + index + "_hora_1");
@@ -576,6 +576,11 @@
                 $("#" + element).on("change", function() {
                     $("#doc_" + element).val($("#" + element).val());
                 });
+            });
+
+            // Para evitar problema com repetição de id fez-se essa exceção com o uso de uma classe no lugar
+            $("#estagiario_nome").on("change", function() {
+                $(".doc_estagiario_nome").html($("#estagiario_nome").val());
             });
 
 

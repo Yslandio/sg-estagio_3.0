@@ -598,10 +598,24 @@ $html = "
                 <span id='doc_documento_cidade_uf'>" . ($_POST['documento_cidade_uf'] ?? "<span style='color: red;'>Cidade-UF</span>") . "</span>, <span id='doc_documento_dia'>" . ($_POST['documento_dia'] ?? "<span style='color: red;'>Dia</span>") . "</span> de <span id='doc_documento_mes'>" . ($_POST['documento_mes'] ?? "<span style='color: red;'>Mês</span>") . "</span> de <span id='doc_documento_ano'>" . ($_POST['documento_ano'] ?? "<span style='color: red;'>Ano</span>") . "</span>.
             </p>
         </div>
-        <div style='font-size: 9.9pt; margin: 16px 0;'>
-            <p style='text-align: justify;'>
-            
-            </p>
+        <table>
+            <tr>
+                <td style='font-size: 9.9pt; width: 50%; text-align: center; padding: 40px 5%;' valign='top'>
+                    <hr style='margin-bottom: 4px;'>
+                    <p style='text-align: center; margin: 0;' id='doc_documento_supervisor_nome'>" . ($_POST['documento_supervisor_nome'] ?? "<span style='color: red;'>Supervisor(a)</span>") . "</p>
+                    <p style='text-align: center; margin: 0;'>Nome e assinatura do(a) Supervisor(a)</p>
+                </td>
+                <td style='font-size: 9.9pt; width: 50%; text-align: center; padding: 40px 5%;' valign='top'>
+                    <hr style='margin-bottom: 4px;'>
+                    <p style='text-align: center; margin: 0;' id='doc_documento_diretor_nome'>" . ($_POST['documento_diretor_nome'] ?? "<span style='color: red;'>Diretor(a)</span>") . "</p>
+                    <p style='text-align: center; margin: 0; font-weight: bold;'>IF Sertão Pernambucano Diretor(a) Geral do Campus Petrolina</p>
+                </td>
+            </tr>
+        </table>
+        <div style='font-size: 9.9pt; text-align: center; padding: 40px;'>
+            <hr style='margin-bottom: 4px;'>
+            <p style='text-align: center; margin: 0;' class='doc_estagiario_nome'>" . ($_POST['estagiario_nome'] ?? "<span style='color: red;'>Estagiário(a)</span>") . "</p>
+            <p style='text-align: center; margin: 0;'>Nome e assinatura do(a) Estagiário(a)</p>
         </div>
     </main>
 ";
