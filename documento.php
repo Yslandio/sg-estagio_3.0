@@ -14,7 +14,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script> -->
     <style>
         .overflow-auto {
-            height: 720px;
+            height: 600px;
         }
 
         @media screen and (max-width: 756px) {
@@ -40,7 +40,7 @@
                 <div class="d-flex flex-wrap gap-2 justify-content-center my-2" id="formulario">
                     <form class="w-100" action="models/documento.php" method="post" id="exportar_documento_pdf">
                         <!-- Inputs com informação a serem inseridas no documento -->
-                        <div class="p-3 border border-1 rounded overflow-auto shadow">
+                        <div class="p-2 border border-1 rounded overflow-auto shadow">
                             <div class="d-flex flex-wrap gap-2 border border-1 rounded p-3">
                                 <h5>Dados do concedente</h5>
                                 <div class="w-100">
@@ -190,52 +190,56 @@
                                     <label>Dias de duração do estágio:</label>
                                     <input class="form-control" type="text" name="estagio_dias_duracao" id="estagio_dias_duracao" placeholder="Ex: 18 (dezoito) dias" value="<?= $_GET['estagio_dias_duracao'] ?? '' ?>">
                                 </div>
-                                <div class="w-100 overflow-auto h-auto">
+                                <div class="form-check w-100">
+                                    <input class="form-check-input" type="checkbox" name="checkbox_matutino" id="checkbox_matutino" checked>
+                                    <label class="form-check-label" style="cursor: pointer;" for="checkbox_matutino">Horários Matutino</label>
+                                </div>
+                                <div class="w-100 overflow-auto h-auto" id="table_matutino">
                                     <table class="table table-bordered" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th colspan="8" class="text-center">MATUTINO</th>
+                                                <th colspan="8" class="text-center" style="padding: 4px; border: 1px solid black;">MATUTINO</th>
                                             </tr>
                                             <tr>
-                                                <th></th>
-                                                <th>Segunda</th>
-                                                <th>Terça</th>
-                                                <th>Quarta</th>
-                                                <th>Quinta</th>
-                                                <th>Sexta</th>
-                                                <th>Sábado</th>
-                                                <th>Domingo</th>
+                                                <th style="padding: 4px; border: 1px solid black;"></th>
+                                                <th style="padding: 4px; border: 1px solid black;">Segunda</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Terça</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quarta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quinta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sexta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sábado</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Domingo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                                                 <tr>
-                                                    <td><?= $i ?></td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;"><?= $i ?>ª aula</td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_segunda_<?= $i ?>_hora_1" id="matutino_segunda_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_segunda_<?= $i ?>_hora_2" id="matutino_segunda_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_terca_<?= $i ?>_hora_1" id="matutino_terca_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_terca_<?= $i ?>_hora_2" id="matutino_terca_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_quarta_<?= $i ?>_hora_1" id="matutino_quarta_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_quarta_<?= $i ?>_hora_2" id="matutino_quarta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_quinta_<?= $i ?>_hora_1" id="matutino_quinta_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_quinta_<?= $i ?>_hora_2" id="matutino_quinta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_sexta_<?= $i ?>_hora_1" id="matutino_sexta_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_sexta_<?= $i ?>_hora_2" id="matutino_sexta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_sabado_<?= $i ?>_hora_1" id="matutino_sabado_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_sabado_<?= $i ?>_hora_2" id="matutino_sabado_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="matutino_domingo_<?= $i ?>_hora_1" id="matutino_domingo_<?= $i ?>_hora_1">
                                                         <input type="time" name="matutino_domingo_<?= $i ?>_hora_2" id="matutino_domingo_<?= $i ?>_hora_2">
                                                     </td>
@@ -244,52 +248,56 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="w-100 overflow-auto h-auto">
+                                <div class="form-check w-100">
+                                    <input class="form-check-input" type="checkbox" name="checkbox_vespertino" id="checkbox_vespertino" checked>
+                                    <label class="form-check-label" style="cursor: pointer;" for="checkbox_vespertino">Horários Vespertino</label>
+                                </div>
+                                <div class="w-100 overflow-auto h-auto" id="table_vespertino">
                                     <table class="table table-bordered" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th colspan="8" class="text-center">VESPERTINO</th>
+                                                <th colspan="8" class="text-center" style="padding: 4px; border: 1px solid black;">VESPERTINO</th>
                                             </tr>
                                             <tr>
-                                                <th></th>
-                                                <th>Segunda</th>
-                                                <th>Terça</th>
-                                                <th>Quarta</th>
-                                                <th>Quinta</th>
-                                                <th>Sexta</th>
-                                                <th>Sábado</th>
-                                                <th>Domingo</th>
+                                                <th style="padding: 4px; border: 1px solid black;"></th>
+                                                <th style="padding: 4px; border: 1px solid black;">Segunda</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Terça</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quarta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quinta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sexta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sábado</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Domingo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                                                 <tr>
-                                                    <td><?= $i ?></td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;"><?= $i ?>ª aula</td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_segunda_<?= $i ?>_hora_1" id="vespertino_segunda_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_segunda_<?= $i ?>_hora_2" id="vespertino_segunda_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_terca_<?= $i ?>_hora_1" id="vespertino_terca_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_terca_<?= $i ?>_hora_2" id="vespertino_terca_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_quarta_<?= $i ?>_hora_1" id="vespertino_quarta_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_quarta_<?= $i ?>_hora_2" id="vespertino_quarta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_quinta_<?= $i ?>_hora_1" id="vespertino_quinta_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_quinta_<?= $i ?>_hora_2" id="vespertino_quinta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_sexta_<?= $i ?>_hora_1" id="vespertino_sexta_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_sexta_<?= $i ?>_hora_2" id="vespertino_sexta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_sabado_<?= $i ?>_hora_1" id="vespertino_sabado_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_sabado_<?= $i ?>_hora_2" id="vespertino_sabado_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="vespertino_domingo_<?= $i ?>_hora_1" id="vespertino_domingo_<?= $i ?>_hora_1">
                                                         <input type="time" name="vespertino_domingo_<?= $i ?>_hora_2" id="vespertino_domingo_<?= $i ?>_hora_2">
                                                     </td>
@@ -298,52 +306,56 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="w-100 overflow-auto h-auto">
+                                <div class="form-check w-100">
+                                    <input class="form-check-input" type="checkbox" name="checkbox_noturno" id="checkbox_noturno" checked>
+                                    <label class="form-check-label" style="cursor: pointer;" for="checkbox_noturno">Horários Noturno</label>
+                                </div>
+                                <div class="w-100 overflow-auto h-auto" id="table_noturno">
                                     <table class="table table-bordered" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th colspan="8" class="text-center">NOTURNO</th>
+                                                <th colspan="8" class="text-center" style="padding: 4px; border: 1px solid black;">NOTURNO</th>
                                             </tr>
                                             <tr>
-                                                <th></th>
-                                                <th>Segunda</th>
-                                                <th>Terça</th>
-                                                <th>Quarta</th>
-                                                <th>Quinta</th>
-                                                <th>Sexta</th>
-                                                <th>Sábado</th>
-                                                <th>Domingo</th>
+                                                <th style="padding: 4px; border: 1px solid black;"></th>
+                                                <th style="padding: 4px; border: 1px solid black;">Segunda</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Terça</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quarta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Quinta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sexta</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Sábado</th>
+                                                <th style="padding: 4px; border: 1px solid black;">Domingo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                                            <?php for ($i = 1; $i <= 4; $i++) { ?>
                                                 <tr>
-                                                    <td><?= $i ?></td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;"><?= $i ?>ª aula</td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_segunda_<?= $i ?>_hora_1" id="noturno_segunda_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_segunda_<?= $i ?>_hora_2" id="noturno_segunda_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_terca_<?= $i ?>_hora_1" id="noturno_terca_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_terca_<?= $i ?>_hora_2" id="noturno_terca_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_quarta_<?= $i ?>_hora_1" id="noturno_quarta_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_quarta_<?= $i ?>_hora_2" id="noturno_quarta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_quinta_<?= $i ?>_hora_1" id="noturno_quinta_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_quinta_<?= $i ?>_hora_2" id="noturno_quinta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_sexta_<?= $i ?>_hora_1" id="noturno_sexta_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_sexta_<?= $i ?>_hora_2" id="noturno_sexta_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_sabado_<?= $i ?>_hora_1" id="noturno_sabado_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_sabado_<?= $i ?>_hora_2" id="noturno_sabado_<?= $i ?>_hora_2">
                                                     </td>
-                                                    <td>
+                                                    <td style="padding: 4px; border: 1px solid black;">
                                                         <input type="time" name="noturno_domingo_<?= $i ?>_hora_1" id="noturno_domingo_<?= $i ?>_hora_1">
                                                         <input type="time" name="noturno_domingo_<?= $i ?>_hora_2" id="noturno_domingo_<?= $i ?>_hora_2">
                                                     </td>
@@ -390,7 +402,7 @@
                         </div>
 
                         <div class="d-flex gap-2 justify-content-end py-4">
-                            <button class="btn btn-outline-dark" type="button" onclick="downloadDoc()">Exportar DOCX</button>
+                            <!-- <button class="btn btn-outline-dark" type="button" onclick="downloadDoc()">Exportar DOCX</button> -->
                             <button class="btn btn-outline-info" type="submit" name="exportar_documento_pdf">Exportar PDF</button>
                         </div>
                     </form>
@@ -428,6 +440,19 @@
 
         // Atribuir os dados dos inputs na prévia de vizualização do documento
         $(() => {
+            var turnos = ["matutino", "vespertino", "noturno"];
+            turnos.forEach(turno => {
+                $("#checkbox_" + turno).change(function() {
+                    if (document.querySelector("#checkbox_" + turno).checked) {
+                        $("#table_" + turno).css("display", "block");
+                        $("#doc_table_" + turno).css("display", "block");
+                    } else {
+                        $("#table_" + turno).css("display", "none");
+                        $("#doc_table_" + turno).css("display", "none");
+                    }
+                });
+            });
+
             var campos = [
                 "concedente_nome",
                 "concedente_cnpj",
@@ -473,7 +498,7 @@
                 "documento_supervisor_nome",
                 "documento_diretor_nome",
             ];
-            
+
             var table = [];
             for (let index = 1; index <= 6; index++) {
                 table.push("matutino_segunda_" + index + "_hora_1");
@@ -520,26 +545,28 @@
                 table.push("vespertino_domingo_" + index + "_hora_2");
 
 
-                table.push("noturno_segunda_" + index + "_hora_1");
-                table.push("noturno_segunda_" + index + "_hora_2");
+                if (index <= 4) {
+                    table.push("noturno_segunda_" + index + "_hora_1");
+                    table.push("noturno_segunda_" + index + "_hora_2");
 
-                table.push("noturno_terca_" + index + "_hora_1");
-                table.push("noturno_terca_" + index + "_hora_2");
+                    table.push("noturno_terca_" + index + "_hora_1");
+                    table.push("noturno_terca_" + index + "_hora_2");
 
-                table.push("noturno_quarta_" + index + "_hora_1");
-                table.push("noturno_quarta_" + index + "_hora_2");
+                    table.push("noturno_quarta_" + index + "_hora_1");
+                    table.push("noturno_quarta_" + index + "_hora_2");
 
-                table.push("noturno_quinta_" + index + "_hora_1");
-                table.push("noturno_quinta_" + index + "_hora_2");
+                    table.push("noturno_quinta_" + index + "_hora_1");
+                    table.push("noturno_quinta_" + index + "_hora_2");
 
-                table.push("noturno_sexta_" + index + "_hora_1");
-                table.push("noturno_sexta_" + index + "_hora_2");
+                    table.push("noturno_sexta_" + index + "_hora_1");
+                    table.push("noturno_sexta_" + index + "_hora_2");
 
-                table.push("noturno_sabado_" + index + "_hora_1");
-                table.push("noturno_sabado_" + index + "_hora_2");
+                    table.push("noturno_sabado_" + index + "_hora_1");
+                    table.push("noturno_sabado_" + index + "_hora_2");
 
-                table.push("noturno_domingo_" + index + "_hora_1");
-                table.push("noturno_domingo_" + index + "_hora_2");
+                    table.push("noturno_domingo_" + index + "_hora_1");
+                    table.push("noturno_domingo_" + index + "_hora_2");
+                }
             }
 
             var value;

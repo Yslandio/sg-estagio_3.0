@@ -123,7 +123,7 @@ $matutino = $vespertino = $noturno = "";
 for ($i = 1; $i <= 6; $i++) {
     $matutino .= "
         <tr>
-            <td style='padding: 4px; border: 1px solid black;'>" . $i . "</td>
+            <td style='padding: 4px; border: 1px solid black;'>" . $i . "ª aula</td>
             <td style='padding: 4px; border: 1px solid black;'>
                 <input type='time' name='doc_matutino_segunda_" . $i . "_hora_1' id='doc_matutino_segunda_" . $i . "_hora_1' value='" . $_POST['matutino_segunda_' . $i . '_hora_1'] . "' readonly>
                 <input type='time' name='doc_matutino_segunda_" . $i . "_hora_2' id='doc_matutino_segunda_" . $i . "_hora_2' value='" . $_POST['matutino_segunda_' . $i . '_hora_2'] . "' readonly>
@@ -156,7 +156,7 @@ for ($i = 1; $i <= 6; $i++) {
     ";
     $vespertino .= "
         <tr>
-            <td style='padding: 4px; border: 1px solid black;'>" . $i . "</td>
+            <td style='padding: 4px; border: 1px solid black;'>" . $i . "ª aula</td>
             <td style='padding: 4px; border: 1px solid black;'>
                 <input type='time' name='doc_vespertino_segunda_" . $i . "_hora_1' id='doc_vespertino_segunda_" . $i . "_hora_1' value='" . $_POST['vespertino_segunda_' . $i . '_hora_1'] . "' readonly>
                 <input type='time' name='doc_vespertino_segunda_" . $i . "_hora_2' id='doc_vespertino_segunda_" . $i . "_hora_2' value='" . $_POST['vespertino_segunda_' . $i . '_hora_2'] . "' readonly>
@@ -187,39 +187,128 @@ for ($i = 1; $i <= 6; $i++) {
             </td>
         </tr>
     ";
-    $noturno .= "
-        <tr>
-            <td style='padding: 4px; border: 1px solid black;'>" . $i . "</td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' doc_name='noturno_segunda_" . $i . "_hora_1' doc_id='noturno_segunda_" . $i . "_hora_1' value='" . $_POST['noturno_segunda_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_segunda_" . $i . "_hora_2' id='doc_noturno_segunda_" . $i . "_hora_2' value='" . $_POST['noturno_segunda_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_terca_" . $i . "_hora_1' id='doc_noturno_terca_" . $i . "_hora_1' value='" . $_POST['noturno_terca_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_terca_" . $i . "_hora_2' id='doc_noturno_terca_" . $i . "_hora_2' value='" . $_POST['noturno_terca_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_quarta_" . $i . "_hora_1' id='doc_noturno_quarta_" . $i . "_hora_1' value='" . $_POST['noturno_quarta_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_quarta_" . $i . "_hora_2' id='doc_noturno_quarta_" . $i . "_hora_2' value='" . $_POST['noturno_quarta_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_quinta_" . $i . "_hora_1' id='doc_noturno_quinta_" . $i . "_hora_1' value='" . $_POST['noturno_quinta_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_quinta_" . $i . "_hora_2' id='doc_noturno_quinta_" . $i . "_hora_2' value='" . $_POST['noturno_quinta_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_sexta_" . $i . "_hora_1' id='doc_noturno_sexta_" . $i . "_hora_1' value='" . $_POST['noturno_sexta_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_sexta_" . $i . "_hora_2' id='doc_noturno_sexta_" . $i . "_hora_2' value='" . $_POST['noturno_sexta_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_sabado_" . $i . "_hora_1' id='doc_noturno_sabado_" . $i . "_hora_1' value='" . $_POST['noturno_sabado_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_sabado_" . $i . "_hora_2' id='doc_noturno_sabado_" . $i . "_hora_2' value='" . $_POST['noturno_sabado_' . $i . '_hora_2'] . "' readonly>
-            </td>
-            <td style='padding: 4px; border: 1px solid black;'>
-                <input type='time' name='doc_noturno_domingo_" . $i . "_hora_1' id='doc_noturno_domingo_" . $i . "_hora_1' value='" . $_POST['noturno_domingo_' . $i . '_hora_1'] . "' readonly>
-                <input type='time' name='doc_noturno_domingo_" . $i . "_hora_2' id='doc_noturno_domingo_" . $i . "_hora_2' value='" . $_POST['noturno_domingo_' . $i . '_hora_2'] . "' readonly>
-            </td>
-        </tr>
+    if ($i <= 4) {
+        $noturno .= "
+            <tr>
+                <td style='padding: 4px; border: 1px solid black;'>" . $i . "ª aula</td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' doc_name='noturno_segunda_" . $i . "_hora_1' doc_id='noturno_segunda_" . $i . "_hora_1' value='" . $_POST['noturno_segunda_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_segunda_" . $i . "_hora_2' id='doc_noturno_segunda_" . $i . "_hora_2' value='" . $_POST['noturno_segunda_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_terca_" . $i . "_hora_1' id='doc_noturno_terca_" . $i . "_hora_1' value='" . $_POST['noturno_terca_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_terca_" . $i . "_hora_2' id='doc_noturno_terca_" . $i . "_hora_2' value='" . $_POST['noturno_terca_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_quarta_" . $i . "_hora_1' id='doc_noturno_quarta_" . $i . "_hora_1' value='" . $_POST['noturno_quarta_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_quarta_" . $i . "_hora_2' id='doc_noturno_quarta_" . $i . "_hora_2' value='" . $_POST['noturno_quarta_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_quinta_" . $i . "_hora_1' id='doc_noturno_quinta_" . $i . "_hora_1' value='" . $_POST['noturno_quinta_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_quinta_" . $i . "_hora_2' id='doc_noturno_quinta_" . $i . "_hora_2' value='" . $_POST['noturno_quinta_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_sexta_" . $i . "_hora_1' id='doc_noturno_sexta_" . $i . "_hora_1' value='" . $_POST['noturno_sexta_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_sexta_" . $i . "_hora_2' id='doc_noturno_sexta_" . $i . "_hora_2' value='" . $_POST['noturno_sexta_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_sabado_" . $i . "_hora_1' id='doc_noturno_sabado_" . $i . "_hora_1' value='" . $_POST['noturno_sabado_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_sabado_" . $i . "_hora_2' id='doc_noturno_sabado_" . $i . "_hora_2' value='" . $_POST['noturno_sabado_' . $i . '_hora_2'] . "' readonly>
+                </td>
+                <td style='padding: 4px; border: 1px solid black;'>
+                    <input type='time' name='doc_noturno_domingo_" . $i . "_hora_1' id='doc_noturno_domingo_" . $i . "_hora_1' value='" . $_POST['noturno_domingo_' . $i . '_hora_1'] . "' readonly>
+                    <input type='time' name='doc_noturno_domingo_" . $i . "_hora_2' id='doc_noturno_domingo_" . $i . "_hora_2' value='" . $_POST['noturno_domingo_' . $i . '_hora_2'] . "' readonly>
+                </td>
+            </tr>
+        ";
+    }
+}
+
+if (!isset($_POST['checkbox_matutino']) && !isset($_POST['concedente_nome']) || $_POST['checkbox_matutino']) {
+$tabela_matutino = "
+        <section style='width: 100%;' id='doc_table_matutino'>
+            <table style='font-size: 9pt;' cellspacing='0'>
+                <thead>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>MATUTINO</th>
+                    </tr>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black;'></th>
+                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {$matutino}
+                </tbody>
+            </table>
+        </section>
     ";
+} else {
+    $tabela_matutino = "";
+}
+
+if (!isset($_POST['checkbox_vespertino']) && !isset($_POST['concedente_nome']) || $_POST['checkbox_vespertino']) {
+    $tabela_vespertino = "
+        <section style='width: 100%; margin: 16px 0;' id='doc_table_vespertino'>
+            <table style='font-size: 9pt;' cellspacing='0'>
+                <thead>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>VESPERTINO</th>
+                    </tr>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black;'></th>
+                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {$vespertino}
+                </tbody>
+            </table>
+        </section>
+    ";
+} else {
+    $tabela_vespertino = "";
+}
+
+if (!isset($_POST['checkbox_noturno']) && !isset($_POST['concedente_nome']) || $_POST['checkbox_noturno']) {
+    $tabela_noturno = "
+        <section style='width: 100%;' id='doc_table_noturno'>
+            <table style='font-size: 9pt;' cellspacing='0'>
+                <thead>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>NOTURNO</th>
+                    </tr>
+                    <tr>
+                        <th style='padding: 4px; border: 1px solid black;'></th>
+                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
+                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {$noturno}
+                </tbody>
+            </table>
+        </section>
+    ";
+} else {
+    $tabela_noturno = "";
 }
 
 $cabecalho = "
@@ -348,74 +437,9 @@ $html = "
                 dia da assinatura do presente, com a seguinte jornada:
             </p>
         </div>
-
-        <section style='width: 100%;'>
-            <table style='font-size: 9pt;' cellspacing='0'>
-                <thead>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>MATUTINO</th>
-                    </tr>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black;'></th>
-                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {$matutino}
-                </tbody>
-            </table>
-        </section>
-        <section style='width: 100%; margin: 16px 0;'>
-            <table style='font-size: 9pt;' cellspacing='0'>
-                <thead>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>VESPERTINO</th>
-                    </tr>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black;'></th>
-                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {$vespertino}
-                </tbody>
-            </table>
-        </section>
-        <section style='width: 100%;'>
-            <table style='font-size: 9pt;' cellspacing='0'>
-                <thead>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black; text-align: center;' colspan='8'>NOTURNO</th>
-                    </tr>
-                    <tr>
-                        <th style='padding: 4px; border: 1px solid black;'></th>
-                        <th style='padding: 4px; border: 1px solid black;'>Segunda</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Terça</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quarta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Quinta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sexta</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Sábado</th>
-                        <th style='padding: 4px; border: 1px solid black;'>Domingo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {$noturno}
-                </tbody>
-            </table>
-        </section>
-
+        " . $tabela_matutino . "
+        " . $tabela_vespertino . "
+        " . $tabela_noturno . "
         <div style='font-size: 9.9pt; margin: 16px 0;'>
             <p style='text-align: justify;'>
                 Com a carga horária de <span id='doc_estagio_horas_semanais' style='font-weight: bold;'>" . ($_POST['estagio_horas_semanais'] ?? "<span style='color: red;'>Horas semanais de estágio</span>") . "</span> semanais, perfazendo uma carga horária total de <span id='doc_estagio_horas_total' style='font-weight: bold;'>" . ($_POST['estagio_horas_total'] ?? "<span style='color: red;'>Horas de estágio total</span>") . "</span>, pois
